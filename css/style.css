@@ -1,0 +1,298 @@
+/* soft reset do CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  color: #222222;
+  background-color: whitesmoke;
+  /* background-image: url("../img/bernard-hermant-XFCei-F4mjg-unsplash.jpg"); */
+  /* background-image: url("https://picsum.photos/800/600"); */
+  font-size: 14px;
+  font-family: Georgia;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: darkred;
+}
+@media (min-width: 400px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+header {
+  height: 25vh;
+  /* display: grid; */
+  /* position: fixed; */
+  padding-top: 50px;
+  /* grid-template-rows: 2; */
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  padding: 0.5em;
+  color: whitesmoke;
+  background-color: #222222;
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  top: calc(100vh - 3.3em);
+  font-size: 0.8em;
+  z-index: 1;
+}
+
+.titulo {
+  transform: scale(0.2) translate(50vh);
+  opacity: 0;
+
+  animation: linear 2s animacaoTitulo;
+}
+
+@keyframes animacaoTitulo {
+  0% {
+  }
+  100% {
+    transform: scale(1) translate(0);
+    opacity: 1;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  /*   background: navy; */
+  background-image: url("../img/bernard-hermant-XFCei-F4mjg-unsplash.jpg");
+  /* background-position: bottom; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  height: 100vh;
+  /* width: 100%; */
+}
+
+.blur {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Make sure this color has an opacity of less than 1 */
+  backdrop-filter: blur(8px); /* This be the blur */
+  height: 100vh;
+}
+
+.menu {
+  background-color: #222222;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 0fr 5fr;
+  grid-gap: 20px;
+  overflow: hidden;
+  height: 70vh;
+}
+
+.wrapper p {
+  margin: 0.5em;
+}
+
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5 {
+  margin-bottom: 0.5em;
+}
+
+section {
+  display: block;
+  max-width: 100%;
+}
+
+.sections {
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroller {
+  width: 100vw;
+  height: 7vh;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+}
+
+.scroller ul {
+  display: grid;
+  grid-template-columns: 4;
+  grid-template-columns: 2;
+  justify-content: space-around;
+  padding: 3em;
+}
+
+.scroller a,
+.menu a {
+  /*background-color: aquamarine; /*serve para depuração dos limites */
+  display: block; /* faz o elemento quebrar a linha */
+  padding: 10px 20px; /*padding para cima e para os lados*/
+  transition: background-color 1s, color 1s;
+}
+
+.menu a:active,
+.menu a:hover,
+.menu a:focus {
+  background-color: crimson;
+  color: #222222;
+  text-decoration: none;
+}
+
+.scroller ul,
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scroller li,
+.menu li {
+  list-style: none;
+}
+/*https://css-tricks.com/how-to-make-a-css-only-carousel/*/
+.scroller a {
+  color: crimson;
+  text-shadow: 0px 0px 20px #aaaaaa;
+  background-color: #222222;
+  border-radius: 20px;
+  scroll-behavior: smooth;
+  transform: scale(0.8);
+  transition: 0.3s ease all;
+}
+
+.scroller a:active,
+.scroller a:hover,
+.scroller a:focus {
+  transform: scale(1);
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+a {
+  color: crimson;
+  text-shadow: 2px 2px 4px #aaaaaa;
+  text-decoration: underline;
+}
+
+a:hover {
+  /* background-color: #222222; */
+  text-shadow: 0px 0px 20px #222222;
+  color: firebrick;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.site-subtitle,
+.site-title {
+  color: #222222;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 4em;
+  font-family: "Monoton", cursive;
+  /* background-color: blue; */
+}
+
+.site-subtitle {
+  font-style: italic;
+  font-family: "VT323", monospace;
+  /* background-color: red; */
+  line-height: 1.4em;
+}
+
+.sobre,
+.carreira,
+.interesses,
+.contato,
+.portfolio {
+  padding: 2em;
+  scroll-snap-align: start;
+  margin-bottom: 10px;
+  min-height: 100vh;
+  object-fit: cover;
+}
+
+.portfolio .grid {
+  display: grid;
+  gap: 2em;
+}
+
+@media (min-width: 560px) {
+  .portfolio .grid {
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 880px) {
+  .portfolio .grid {
+    grid-template-columns: repeat(3, 260px);
+    align-content: center;
+    justify-content: space-between;
+    height: calc(100vh - 4em - 48px - 4em);
+  }
+}
+
+.sobre h2,
+.carreira h2,
+.interesses h2 h3,
+.contato h2,
+.portfolio h2 {
+  font-family: "Balsamiq Sans", cursive;
+  margin-bottom: 1.5em;
+}
+
+.contato .icons {
+  text-align: center;
+}
+
+.contato a {
+  background-color: transparent;
+  text-decoration: none;
+  color: #222222;
+  font-size: 6em;
+  transition: color text-shadow 0.5s;
+}
+
+.contato a:active,
+.contato a:hover,
+.contato a:focus {
+  text-decoration: none;
+  color: #222222;
+  text-shadow: 0px 0px 20px crimson;
+}
+
+.img-portfolio {
+  width: 240px;
+  height: 180px;
+  /* object-fit: cover; */
+  object-fit: left bottom;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover,
+.img-portfolio:focus {
+  transform: scale(1.2) rotate(-2deg);
+}
